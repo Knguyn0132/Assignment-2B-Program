@@ -1,0 +1,802 @@
+{
+  "970": {
+    "site_id": 970,
+    "location": "WARRIGAL_RD N of HIGH STREET_RD",
+    "latitude": -38.17140921018384,
+    "longitude": 144.32151849652757,
+    "data_points": 123,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11316,
+        4
+      ],
+      "y": [
+        11316
+      ]
+    }
+  },
+  "2000": {
+    "site_id": 2000,
+    "location": "WARRIGAL_RD N of TOORAK_RD",
+    "latitude": -37.8516827,
+    "longitude": 145.0943457,
+    "data_points": 114,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        10488,
+        4
+      ],
+      "y": [
+        10488
+      ]
+    }
+  },
+  "2200": {
+    "site_id": 2200,
+    "location": "UNION_RD N of MAROONDAH_HWY",
+    "latitude": -38.12890939563314,
+    "longitude": 145.17221169881572,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "2820": {
+    "site_id": 2820,
+    "location": "EARL_ST SE of PRINCESS_ST",
+    "latitude": -38.43379898931014,
+    "longitude": 142.8561622493999,
+    "data_points": 61,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        5612,
+        4
+      ],
+      "y": [
+        5612
+      ]
+    }
+  },
+  "2825": {
+    "site_id": 2825,
+    "location": "BURKE_RD S of EASTERN_FWY",
+    "latitude": -37.49672633243739,
+    "longitude": 147.83792141021965,
+    "data_points": 31,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        2852,
+        4
+      ],
+      "y": [
+        2852
+      ]
+    }
+  },
+  "2827": {
+    "site_id": 2827,
+    "location": "BULLEEN_RD N of THOMPSONS_RD",
+    "latitude": -38.09787800003102,
+    "longitude": 144.33401510112918,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "2846": {
+    "site_id": 2846,
+    "location": "S.E.ARTERIAL N OF HIGH_ST",
+    "latitude": -37.8612671,
+    "longitude": 145.058038,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "3001": {
+    "site_id": 3001,
+    "location": "HIGH_ST NE of BARKERS_RD",
+    "latitude": -37.86235948255075,
+    "longitude": 145.06346488402616,
+    "data_points": 95,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8740,
+        4
+      ],
+      "y": [
+        8740
+      ]
+    }
+  },
+  "3002": {
+    "site_id": 3002,
+    "location": "DENMARK_ST N of BARKERS_RD",
+    "latitude": -37.69060691632249,
+    "longitude": 144.95839997293797,
+    "data_points": 104,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        9568,
+        4
+      ],
+      "y": [
+        9568
+      ]
+    }
+  },
+  "3120": {
+    "site_id": 3120,
+    "location": "BURKE_RD N of CANTERBURY_RD",
+    "latitude": -37.96544149619299,
+    "longitude": 145.11073842358834,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "3122": {
+    "site_id": 3122,
+    "location": "CANTERBURY_RD E of STANHOPE_GV",
+    "latitude": -36.75217139870552,
+    "longitude": 144.27935339561628,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "3126": {
+    "site_id": 3126,
+    "location": "CANTERBURY_RD E of WARRIGAL_RD",
+    "latitude": -37.807626994570434,
+    "longitude": 145.2304877265179,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "3127": {
+    "site_id": 3127,
+    "location": "BALWYN_RD N of CANTERBURY_RD",
+    "latitude": -37.913866197467485,
+    "longitude": 145.15948741562158,
+    "data_points": 78,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        7176,
+        4
+      ],
+      "y": [
+        7176
+      ]
+    }
+  },
+  "3180": {
+    "site_id": 3180,
+    "location": "DONCASTER_RD E of BALWYN_RD",
+    "latitude": -38.02403750647337,
+    "longitude": 145.2468818384126,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "3662": {
+    "site_id": 3662,
+    "location": "PRINCESS_ST N of HIGH_ST",
+    "latitude": -38.09737692012615,
+    "longitude": 144.30500844210908,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "3682": {
+    "site_id": 3682,
+    "location": "WARRIGAL_RD N OF RIVERSDALE_RD",
+    "latitude": -38.51554285096245,
+    "longitude": 145.3595719440552,
+    "data_points": 116,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        10672,
+        4
+      ],
+      "y": [
+        10672
+      ]
+    }
+  },
+  "3685": {
+    "site_id": 3685,
+    "location": "WARRIGAL_RD N of HIGHBURY_RD",
+    "latitude": -38.24545432921405,
+    "longitude": 144.30520701683236,
+    "data_points": 83,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        7636,
+        4
+      ],
+      "y": [
+        7636
+      ]
+    }
+  },
+  "3804": {
+    "site_id": 3804,
+    "location": "TRAFALGAR_RD N of RIVERSDALE_RD",
+    "latitude": -37.83331,
+    "longitude": 145.06247,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "3812": {
+    "site_id": 3812,
+    "location": "TRAFALGAR_RD NE of CAMBERWELL_RD",
+    "latitude": -36.75967197805578,
+    "longitude": 144.24509147173137,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4030": {
+    "site_id": 4030,
+    "location": "BURKE_RD S of DONCASTER_RD",
+    "latitude": -36.42903464985864,
+    "longitude": 144.19607430026505,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "4032": {
+    "site_id": 4032,
+    "location": "BURKE_RD N of HARP_RD",
+    "latitude": -37.79676778779391,
+    "longitude": 148.5436393959378,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4034": {
+    "site_id": 4034,
+    "location": "BURKE_RD N OF WHITEHORSE_RD",
+    "latitude": -37.35072136854089,
+    "longitude": 145.02152442155793,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4035": {
+    "site_id": 4035,
+    "location": "BURKE_RD N of MONT ALBERT_RD",
+    "latitude": -37.096044890901496,
+    "longitude": 144.3266267152441,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4040": {
+    "site_id": 4040,
+    "location": "BURKE_RD N of RIVERSDALE_RD",
+    "latitude": -36.091339989923696,
+    "longitude": 142.88606173376468,
+    "data_points": 186,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        17112,
+        4
+      ],
+      "y": [
+        17112
+      ]
+    }
+  },
+  "4043": {
+    "site_id": 4043,
+    "location": "BURKE_RD N of TOORAK_RD",
+    "latitude": -37.67565549557232,
+    "longitude": 144.92687320017717,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4051": {
+    "site_id": 4051,
+    "location": "DONCASTER_RD E of BULLEEN_RD",
+    "latitude": -37.87882249493188,
+    "longitude": 147.9853255036124,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "4057": {
+    "site_id": 4057,
+    "location": "BALWYN_RD N OF BELMORE_RD",
+    "latitude": -37.18515177160449,
+    "longitude": 142.5442036642621,
+    "data_points": 122,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11224,
+        4
+      ],
+      "y": [
+        11224
+      ]
+    }
+  },
+  "4063": {
+    "site_id": 4063,
+    "location": "BALWYN_RD N OF WHITEHORSE_RD",
+    "latitude": -38.49725913510818,
+    "longitude": 145.26350350630457,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4262": {
+    "site_id": 4262,
+    "location": "BRIDGE_RD SW of BURWOOD_RD",
+    "latitude": -37.77547339918155,
+    "longitude": 144.97106131643434,
+    "data_points": 26,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        2392,
+        4
+      ],
+      "y": [
+        2392
+      ]
+    }
+  },
+  "4263": {
+    "site_id": 4263,
+    "location": "POWER_ST N of BURWOOD_RD",
+    "latitude": -37.80637019184275,
+    "longitude": 144.98298640167678,
+    "data_points": 104,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        9568,
+        4
+      ],
+      "y": [
+        9568
+      ]
+    }
+  },
+  "4264": {
+    "site_id": 4264,
+    "location": "GLENFERRIE_RD N of BURWOOD_RD",
+    "latitude": -37.81056780660556,
+    "longitude": 145.00064120242828,
+    "data_points": 115,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        10580,
+        4
+      ],
+      "y": [
+        10580
+      ]
+    }
+  },
+  "4266": {
+    "site_id": 4266,
+    "location": "AUBURN_RD N of BURWOOD_RD",
+    "latitude": -37.76461299534208,
+    "longitude": 144.8182604838968,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4270": {
+    "site_id": 4270,
+    "location": "GLENFERRIE_RD N of RIVERSDALE_RD",
+    "latitude": -37.78287769466756,
+    "longitude": 144.82774104199737,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4272": {
+    "site_id": 4272,
+    "location": "RIVERSDALE_RD E of TOORONGA_RD",
+    "latitude": -37.62570849173902,
+    "longitude": 145.02833605301515,
+    "data_points": 90,
+    "data_period": {
+      "start": "2006-10-02",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8280,
+        4
+      ],
+      "y": [
+        8280
+      ]
+    }
+  },
+  "4273": {
+    "site_id": 4273,
+    "location": "TOORONGA_RD N of TOORAK_RD",
+    "latitude": -37.755243611426806,
+    "longitude": 144.99387364510198,
+    "data_points": 62,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        5704,
+        4
+      ],
+      "y": [
+        5704
+      ]
+    }
+  },
+  "4321": {
+    "site_id": 4321,
+    "location": "HIGH_ST NE OF HARP_ST",
+    "latitude": -37.79219979410884,
+    "longitude": 145.06422174032028,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  },
+  "4324": {
+    "site_id": 4324,
+    "location": "COTHAM_RD E OF GLENFERRIE_RD",
+    "latitude": -37.71317179728144,
+    "longitude": 145.03164590439735,
+    "data_points": 93,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        8556,
+        4
+      ],
+      "y": [
+        8556
+      ]
+    }
+  },
+  "4335": {
+    "site_id": 4335,
+    "location": "HIGH_ST NE of CHARLES_ST",
+    "latitude": -38.10009160100914,
+    "longitude": 145.1722873005239,
+    "data_points": 62,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        5704,
+        4
+      ],
+      "y": [
+        5704
+      ]
+    }
+  },
+  "4812": {
+    "site_id": 4812,
+    "location": "SWAN_ST NE of MADDEN_GV",
+    "latitude": -37.76615529417656,
+    "longitude": 144.9196290179559,
+    "data_points": 78,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        7176,
+        4
+      ],
+      "y": [
+        7176
+      ]
+    }
+  },
+  "4821": {
+    "site_id": 4821,
+    "location": "WALMER_ST N OF VICTORIA_ST",
+    "latitude": -37.80996370392904,
+    "longitude": 145.06076810973215,
+    "data_points": 124,
+    "data_period": {
+      "start": "2006-10-01",
+      "end": "2006-10-31"
+    },
+    "time_series_shape": {
+      "X": [
+        11408,
+        4
+      ],
+      "y": [
+        11408
+      ]
+    }
+  }
+}
