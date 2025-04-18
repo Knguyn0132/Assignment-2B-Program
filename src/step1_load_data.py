@@ -46,7 +46,7 @@ def load_basic_data():
         if "SCATS Site Numbers" in xls.sheet_names:
             print("\nSheet: SCATS Site Numbers")
             try:
-                df_sites = pd.read_excel(xls, sheet_name="SCATS Site Numbers", skiprows=10, engine='openpyxl')
+                df_sites = pd.read_excel(xls, sheet_name="SCATS Site Numbers", skiprows=9, engine='openpyxl')
                 print(f"  Shape: {df_sites.shape}")
                 print(df_sites.head(5))
             except Exception as se:
