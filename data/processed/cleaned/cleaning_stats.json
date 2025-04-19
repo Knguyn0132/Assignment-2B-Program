@@ -1,6 +1,6 @@
 {
   "970": {
-    "original_samples": 11316,
+    "original_samples": 10332,
     "nan_values": {
       "X": 0,
       "y": 0
@@ -10,12 +10,12 @@
       "y": 0
     },
     "train_test_split": {
-      "train": 9052,
-      "test": 2264
+      "train": 8265,
+      "test": 2067
     }
   },
   "2000": {
-    "original_samples": 10488,
+    "original_samples": 9576,
     "nan_values": {
       "X": 0,
       "y": 0
@@ -25,578 +25,578 @@
       "y": 1
     },
     "train_test_split": {
-      "train": 8390,
-      "test": 2098
+      "train": 7660,
+      "test": 1916
     }
   },
   "2200": {
-    "original_samples": 11408,
+    "original_samples": 10416,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 16,
+      "X": 36,
       "y": 4
     },
     "train_test_split": {
-      "train": 9126,
-      "test": 2282
+      "train": 8332,
+      "test": 2084
     }
   },
   "2820": {
-    "original_samples": 5612,
+    "original_samples": 5124,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 148,
-      "y": 40
-    },
-    "train_test_split": {
-      "train": 4489,
-      "test": 1123
-    }
-  },
-  "2825": {
-    "original_samples": 2852,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 0,
-      "y": 0
-    },
-    "train_test_split": {
-      "train": 2281,
-      "test": 571
-    }
-  },
-  "2827": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 196,
-      "y": 50
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "2846": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 641,
-      "y": 161
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "3001": {
-    "original_samples": 8740,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 308,
-      "y": 77
-    },
-    "train_test_split": {
-      "train": 6992,
-      "test": 1748
-    }
-  },
-  "3002": {
-    "original_samples": 9568,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 12,
-      "y": 3
-    },
-    "train_test_split": {
-      "train": 7654,
-      "test": 1914
-    }
-  },
-  "3120": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 61,
-      "y": 16
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "3122": {
-    "original_samples": 8556,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 223,
-      "y": 56
-    },
-    "train_test_split": {
-      "train": 6844,
-      "test": 1712
-    }
-  },
-  "3126": {
-    "original_samples": 8556,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 237,
-      "y": 60
-    },
-    "train_test_split": {
-      "train": 6844,
-      "test": 1712
-    }
-  },
-  "3127": {
-    "original_samples": 7176,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 140,
-      "y": 35
-    },
-    "train_test_split": {
-      "train": 5740,
-      "test": 1436
-    }
-  },
-  "3180": {
-    "original_samples": 8556,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 520,
-      "y": 130
-    },
-    "train_test_split": {
-      "train": 6844,
-      "test": 1712
-    }
-  },
-  "3662": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 390,
-      "y": 99
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "3682": {
-    "original_samples": 10672,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 4,
-      "y": 1
-    },
-    "train_test_split": {
-      "train": 8537,
-      "test": 2135
-    }
-  },
-  "3685": {
-    "original_samples": 7636,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 35,
-      "y": 9
-    },
-    "train_test_split": {
-      "train": 6108,
-      "test": 1528
-    }
-  },
-  "3804": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 148,
-      "y": 39
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "3812": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 560,
-      "y": 140
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4030": {
-    "original_samples": 8556,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 32,
-      "y": 8
-    },
-    "train_test_split": {
-      "train": 6844,
-      "test": 1712
-    }
-  },
-  "4032": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 24,
-      "y": 6
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4034": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 112,
-      "y": 33
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4035": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 18,
-      "y": 5
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4040": {
-    "original_samples": 17112,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 124,
+      "X": 289,
       "y": 32
     },
     "train_test_split": {
-      "train": 13689,
-      "test": 3423
+      "train": 4099,
+      "test": 1025
     }
   },
-  "4043": {
-    "original_samples": 11408,
+  "2825": {
+    "original_samples": 2604,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 151,
-      "y": 40
+      "X": 0,
+      "y": 0
     },
     "train_test_split": {
-      "train": 9126,
-      "test": 2282
+      "train": 2083,
+      "test": 521
     }
   },
-  "4051": {
-    "original_samples": 8556,
+  "2827": {
+    "original_samples": 10416,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 444,
-      "y": 111
+      "X": 406,
+      "y": 41
     },
     "train_test_split": {
-      "train": 6844,
-      "test": 1712
+      "train": 8332,
+      "test": 2084
     }
   },
-  "4057": {
-    "original_samples": 11224,
+  "2846": {
+    "original_samples": 10416,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 100,
-      "y": 25
+      "X": 1843,
+      "y": 154
     },
     "train_test_split": {
-      "train": 8979,
-      "test": 2245
+      "train": 8332,
+      "test": 2084
     }
   },
-  "4063": {
-    "original_samples": 11408,
+  "3001": {
+    "original_samples": 7980,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 4,
-      "y": 1
+      "X": 788,
+      "y": 73
     },
     "train_test_split": {
-      "train": 9126,
-      "test": 2282
+      "train": 6384,
+      "test": 1596
     }
   },
-  "4262": {
-    "original_samples": 2392,
+  "3002": {
+    "original_samples": 8736,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 24,
-      "y": 7
-    },
-    "train_test_split": {
-      "train": 1913,
-      "test": 479
-    }
-  },
-  "4263": {
-    "original_samples": 9568,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 20,
-      "y": 5
-    },
-    "train_test_split": {
-      "train": 7654,
-      "test": 1914
-    }
-  },
-  "4264": {
-    "original_samples": 10580,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 564,
-      "y": 141
-    },
-    "train_test_split": {
-      "train": 8464,
-      "test": 2116
-    }
-  },
-  "4266": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 120,
-      "y": 30
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4270": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 88,
-      "y": 22
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4272": {
-    "original_samples": 8280,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 60,
-      "y": 16
-    },
-    "train_test_split": {
-      "train": 6624,
-      "test": 1656
-    }
-  },
-  "4273": {
-    "original_samples": 5704,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 12,
-      "y": 4
-    },
-    "train_test_split": {
-      "train": 4563,
-      "test": 1141
-    }
-  },
-  "4321": {
-    "original_samples": 11408,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 716,
-      "y": 179
-    },
-    "train_test_split": {
-      "train": 9126,
-      "test": 2282
-    }
-  },
-  "4324": {
-    "original_samples": 8556,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 405,
-      "y": 102
-    },
-    "train_test_split": {
-      "train": 6844,
-      "test": 1712
-    }
-  },
-  "4335": {
-    "original_samples": 5704,
-    "nan_values": {
-      "X": 0,
-      "y": 0
-    },
-    "outliers": {
-      "X": 12,
+      "X": 9,
       "y": 3
     },
     "train_test_split": {
-      "train": 4563,
-      "test": 1141
+      "train": 6988,
+      "test": 1748
+    }
+  },
+  "3120": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 137,
+      "y": 21
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "3122": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 570,
+      "y": 53
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "3126": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 477,
+      "y": 50
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "3127": {
+    "original_samples": 6552,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 353,
+      "y": 31
+    },
+    "train_test_split": {
+      "train": 5241,
+      "test": 1311
+    }
+  },
+  "3180": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1527,
+      "y": 129
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "3662": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 697,
+      "y": 88
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "3682": {
+    "original_samples": 9744,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 5,
+      "y": 1
+    },
+    "train_test_split": {
+      "train": 7795,
+      "test": 1949
+    }
+  },
+  "3685": {
+    "original_samples": 6972,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 55,
+      "y": 6
+    },
+    "train_test_split": {
+      "train": 5577,
+      "test": 1395
+    }
+  },
+  "3804": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 366,
+      "y": 35
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "3812": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1406,
+      "y": 126
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4030": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 48,
+      "y": 4
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "4032": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 26,
+      "y": 4
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4034": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 238,
+      "y": 25
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4035": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 31,
+      "y": 6
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4040": {
+    "original_samples": 15624,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 329,
+      "y": 33
+    },
+    "train_test_split": {
+      "train": 12499,
+      "test": 3125
+    }
+  },
+  "4043": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 331,
+      "y": 42
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4051": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1251,
+      "y": 107
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "4057": {
+    "original_samples": 10248,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 207,
+      "y": 25
+    },
+    "train_test_split": {
+      "train": 8198,
+      "test": 2050
+    }
+  },
+  "4063": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 2,
+      "y": 3
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4262": {
+    "original_samples": 2184,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 25,
+      "y": 5
+    },
+    "train_test_split": {
+      "train": 1747,
+      "test": 437
+    }
+  },
+  "4263": {
+    "original_samples": 8736,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 36,
+      "y": 5
+    },
+    "train_test_split": {
+      "train": 6988,
+      "test": 1748
+    }
+  },
+  "4264": {
+    "original_samples": 9660,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1612,
+      "y": 141
+    },
+    "train_test_split": {
+      "train": 7728,
+      "test": 1932
+    }
+  },
+  "4266": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 273,
+      "y": 30
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4270": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 167,
+      "y": 23
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4272": {
+    "original_samples": 7560,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 119,
+      "y": 12
+    },
+    "train_test_split": {
+      "train": 6048,
+      "test": 1512
+    }
+  },
+  "4273": {
+    "original_samples": 5208,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 11,
+      "y": 2
+    },
+    "train_test_split": {
+      "train": 4166,
+      "test": 1042
+    }
+  },
+  "4321": {
+    "original_samples": 10416,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1878,
+      "y": 171
+    },
+    "train_test_split": {
+      "train": 8332,
+      "test": 2084
+    }
+  },
+  "4324": {
+    "original_samples": 7812,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 1125,
+      "y": 100
+    },
+    "train_test_split": {
+      "train": 6249,
+      "test": 1563
+    }
+  },
+  "4335": {
+    "original_samples": 5208,
+    "nan_values": {
+      "X": 0,
+      "y": 0
+    },
+    "outliers": {
+      "X": 26,
+      "y": 3
+    },
+    "train_test_split": {
+      "train": 4166,
+      "test": 1042
     }
   },
   "4812": {
-    "original_samples": 7176,
+    "original_samples": 6552,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 116,
-      "y": 29
+      "X": 224,
+      "y": 25
     },
     "train_test_split": {
-      "train": 5740,
-      "test": 1436
+      "train": 5241,
+      "test": 1311
     }
   },
   "4821": {
-    "original_samples": 11408,
+    "original_samples": 10416,
     "nan_values": {
       "X": 0,
       "y": 0
     },
     "outliers": {
-      "X": 264,
-      "y": 66
+      "X": 537,
+      "y": 48
     },
     "train_test_split": {
-      "train": 9126,
-      "test": 2282
+      "train": 8332,
+      "test": 2084
     }
   }
 }

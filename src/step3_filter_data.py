@@ -87,30 +87,35 @@ def filter_process_boroondara_data():
             plt.savefig(os.path.join(site_dir, 'daily_pattern.png'))
             plt.close()
         
-        # 4. Create time series data for ML model training
+                # 4. Create time series data for ML model training
         # Sort data by date to ensure chronological order
         site_data = site_data.sort_values('Date')
-        
-        # Extract volume data
+
+        # Extract volume data: shape = (days, 96 intervals)
         volume_data = site_data[volume_cols].values
-        
-        # Create sliding windows for time series
+
+        # Create sliding windows for time series prediction
         X_data = []
         y_data = []
-        window_size = 4  # Use 4 previous 15-min intervals to predict the next one
-        
-        # Create sliding windows across all available data
+        window_size = 12  # Use 12 previous 15-min intervals to predict the next one (same as Step 2)
+
+        # Loop through all days
         for i in range(len(volume_data)):
+            # Loop through intervals in a day using sliding window
             for j in range(len(volume_data[i]) - window_size):
-                X_data.append(volume_data[i][j:j+window_size])
-                y_data.append(volume_data[i][j+window_size])
-        
+                # Input = 10 previous intervals
+                X_data.append(volume_data[i][j:j + window_size])
+
+                # Output = next interval
+                y_data.append(volume_data[i][j + window_size])
+
+        # Convert to numpy arrays
         X = np.array(X_data)
         y = np.array(y_data)
-        
+
         if len(X) > 0:
             print(f"  Created time series data with shape: X={X.shape}, y={y.shape}")
-            
+
             # Save time series data
             np.save(os.path.join(site_dir, 'X_data.npy'), X)
             np.save(os.path.join(site_dir, 'y_data.npy'), y)

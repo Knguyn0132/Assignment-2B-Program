@@ -1,88 +1,89 @@
-import pandas as pd
-import numpy as np
-import os
-import matplotlib.pyplot as plt
-from datetime import datetime, timedelta
+"""
+Step 2: Explore and Process Traffic Data
+This script analyzes traffic data from SCATS sites in Boroondara by:
+- Loading and checking the traffic volume data
+- Creating daily traffic patterns and visualizations
+- Preparing data for machine learning analysis
+- Saving processed data files for later use
+"""
+
+# Import needed packages
+import pandas as pd  # For data manipulation and analysis
+import numpy as np  # For numerical operations
+import os  # For file and directory operations
+import matplotlib.pyplot as plt  # For creating visualizations
+from datetime import datetime, timedelta  # For date/time handling
 
 def explore_and_process_data():
-    """
-    Step 2: Explore and process traffic data, focusing on Boroondara SCATS sites
-    """
+    # Print a message showing we're starting Step 2
     print("Step 2: Exploring and processing traffic data...\n")
     
-    # File paths
+    # Define paths for raw and processed data folders
     data_dir = os.path.join('data', 'raw')
     processed_dir = os.path.join('data', 'processed')
-    os.makedirs(processed_dir, exist_ok=True)
+    os.makedirs(processed_dir, exist_ok=True)  # Create processed folder if it doesn't exist
     
-    # Load the traffic data 
+    # Load the Excel file containing traffic data
     scats_data_path = os.path.join(data_dir, 'Scats Data October 2006.xlsx')
-    
     print("Loading SCATS traffic data...")
     traffic_data = pd.read_excel(scats_data_path, sheet_name='Data', header=1)
     
-    # Load the summary data to get list of SCATS sites
+    # Load the summary sheet to get information about SCATS sites
     summary_data = pd.read_excel(scats_data_path, sheet_name='Summary Of Data', header=3)
     
-    # === DATA EXPLORATION ===
+    # Print a header for the data exploration section
     print("\n" + "=" * 50)
     print("EXPLORING TRAFFIC DATA")
     print("=" * 50)
     
-    # 1. Basic statistics
+    # Show the dimensions of the traffic data
     print(f"Traffic data shape: {traffic_data.shape}")
     print("\nColumn names:")
-    print(traffic_data.columns.tolist()[:15]) # Show first 15 columns to keep output manageable
+    print(traffic_data.columns.tolist()[:15])  # Show first 15 columns only
     
-    # 2. Check for missing values
+    # Check for missing values in the dataset
     missing_values = traffic_data.isnull().sum()
     columns_with_missing = missing_values[missing_values > 0]
     print(f"\nColumns with missing values: {len(columns_with_missing)}")
     if len(columns_with_missing) > 0:
         print(columns_with_missing)
     
-    # 3. Identify SCATS sites in the data
+    # Show how many unique SCATS sites are in the data
     print(f"\nNumber of unique SCATS sites: {traffic_data['SCATS Number'].nunique()}")
     print(f"SCATS sites: {sorted(traffic_data['SCATS Number'].unique())}")
     
-    # 4. Time period of the data
+    # Show the time period covered by the data
     if 'Date' in traffic_data.columns:
         print(f"\nData time period: {traffic_data['Date'].min()} to {traffic_data['Date'].max()}")
     
-    # === DATA PROCESSING ===
+    # Print a header for the data processing section
     print("\n" + "=" * 50)
     print("PROCESSING TRAFFIC DATA")
     print("=" * 50)
     
-    # 1. Extract volume columns (V00 to V95 representing 15-minute intervals)
+    # Find all columns containing traffic volume data (V00-V95)
     volume_cols = [col for col in traffic_data.columns if col.startswith('V') and col[1:].isdigit()]
     print(f"Found {len(volume_cols)} volume columns")
     
-    # 2. Process the data for a single site as an example
+    # Select the first SCATS site as an example to process
     sample_site = traffic_data['SCATS Number'].iloc[0]
     print(f"\nProcessing sample site: {sample_site}")
-    
     site_data = traffic_data[traffic_data['SCATS Number'] == sample_site].copy()
-    print(f"Site data shape: {site_data.shape}")
     
-    # 3. Calculate daily traffic patterns
-    # For each day, calculate the average volume for each 15-min interval
+    # Calculate the average traffic volume for each 15-minute interval
     daily_pattern = site_data[volume_cols].mean().reset_index()
     daily_pattern.columns = ['Interval', 'Average Volume']
     
-    # Create time labels (00:00, 00:15, ..., 23:45)
+    # Create time labels for each 15-minute interval (00:00, 00:15, etc.)
     time_labels = []
-    for i in range(96):  # 96 15-minute intervals in a day
+    for i in range(96):  # 96 intervals in a day
         hour = i // 4
         minute = (i % 4) * 15
         time_labels.append(f"{hour:02d}:{minute:02d}")
     
+    # Create and save a visualization of the daily traffic pattern
     if len(daily_pattern) == len(time_labels):
         daily_pattern['Time'] = time_labels
-        print("\nDaily traffic pattern (sample):")
-        print(daily_pattern.head())
-        
-        # Create a visualization of the daily pattern
         plt.figure(figsize=(12, 6))
         plt.plot(daily_pattern['Time'], daily_pattern['Average Volume'])
         plt.title(f'Average Daily Traffic Pattern - SCATS Site {sample_site}')
@@ -93,69 +94,66 @@ def explore_and_process_data():
         plt.tight_layout()
         plt.savefig(os.path.join(processed_dir, f'site_{sample_site}_daily_pattern.png'))
         plt.close()
-        print(f"Saved daily pattern visualization to {processed_dir}/site_{sample_site}_daily_pattern.png")
     
-    # 4. Create time series data for ML model training
-    # Reshape the data into a time series format with past values as features
-    print("\nCreating time series data for ML model training...")
-    
-    # Combine date and time to create a proper time series
-    # 4. Create time series data for ML model training
-
-    # Prepare site data in chronological order
+    # Sort the site data by date to ensure chronological order
     site_data = site_data.sort_values('Date')
-
-    # Extract volume data
+    
+    # Extract just the traffic volume data as a numpy array (each row = 1 day, 96 intervals)
     volume_data = site_data[volume_cols].values
 
-    # Create sliding windows for time series
-    X_data = []
-    y_data = []
-    window_size = 4  # Use 4 previous 15-min intervals to predict the next one
+    # We'll now create training data for a machine learning model using a sliding window approach
+    # Each input (X) will be 10 consecutive days of traffic data
+    # The target/output (y) will be the traffic data of the day that comes right after those 10 days
 
-    # Create sliding windows across the entire dataset
+    X_data = []  # This will store input sequences (10 days each)
+    y_data = []  # This will store the actual next day (used as label/output)
+
+    window_size = 10  # Number of past days we want to use to predict the next day
+
+    # Loop through the dataset and create input-output pairs
     for i in range(len(volume_data) - window_size):
-        X_data.append(volume_data[i:i+window_size])
-        y_data.append(volume_data[i+window_size])
+        # X[i] = 10 days of traffic data (i to i+9)
+        X_data.append(volume_data[i:i + window_size])
+        
+        # y[i] = 11th day (i+10), which is the day we want to predict
+        # This is still taken from the actual dataset — we just save it separately
+        y_data.append(volume_data[i + window_size])
 
+    # Convert lists to numpy arrays so we can use them in machine learning models
+    # X shape → (number of samples, 10 days, 96 intervals)
+    # y shape → (number of samples, 96 intervals for the next day)
     X = np.array(X_data)
     y = np.array(y_data)
 
     print(f"Created time series data with shape: X={X.shape}, y={y.shape}")
+
     
-    X = np.array(X_data)
-    y = np.array(y_data)
-    
-    print(f"Created time series data with shape: X={X.shape}, y={y.shape}")
-    
-    # 5. Save processed data for ML model training
+    # Save the processed data for later use
     np.save(os.path.join(processed_dir, f'site_{sample_site}_X.npy'), X)
     np.save(os.path.join(processed_dir, f'site_{sample_site}_y.npy'), y)
-    print(f"Saved time series data to {processed_dir}")
-    
-    # 6. Save daily pattern data
     daily_pattern.to_csv(os.path.join(processed_dir, f'site_{sample_site}_daily_pattern.csv'), index=False)
     
-    # === PREPARE BOROONDARA SITES LIST ===
+    # Print a header for the Boroondara sites section
     print("\n" + "=" * 50)
     print("PREPARING BOROONDARA SITES LIST")
     print("=" * 50)
     
-    # From the summary sheet, extract all the SCATS sites
-    # First, clean up the summary data
+    # Clean the summary data by removing rows with missing SCATS numbers
     summary_data = summary_data.dropna(subset=['SCATS Number'])
     
-    # Get unique SCATS site numbers
+    # Get a list of all unique SCATS sites in Boroondara
     boroondara_sites = summary_data['SCATS Number'].unique()
     print(f"Identified {len(boroondara_sites)} unique SCATS sites in Boroondara")
     print(f"Sample sites: {sorted(boroondara_sites)[:10]}")
     
-    # Save the list of Boroondara SCATS sites
+    # Save the list of Boroondara SCATS sites for later steps
     pd.DataFrame({'SCATS_Site': boroondara_sites}).to_csv(
         os.path.join(processed_dir, 'boroondara_scats_sites.csv'), index=False)
     print(f"Saved Boroondara SCATS sites list to {processed_dir}/boroondara_scats_sites.csv")
     
+    # Print completion message
     print("\nStep 2 complete: Data exploration and processing finished")
 
+# Run the function if this script is executed directly
 if __name__ == "__main__":
     explore_and_process_data()
