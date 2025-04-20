@@ -120,6 +120,25 @@ def process_traffic_data(
 
         # 6. Feature engineering
         tf_list = []
+        # === Only run once per site ===
+        peak_interval_count = 6
+        peak_indices = avg.argsort()[-peak_interval_count:]
+        peak_mask = np.zeros_like(avg, dtype=bool)
+        peak_mask[peak_indices] = True
+
+        # Save site profile just once
+        site_profile = {
+            "site_id": int(site_id),
+            "top_peak_intervals": [int(i) for i in peak_indices[::-1]],
+            "top_peak_times": [time_labels[i] for i in peak_indices[::-1]],
+            "peak_volumes": [float(avg[i]) for i in peak_indices[::-1]],
+            "total_samples": int(len(y_raw))
+        }
+        with open(os.path.join(sd, 'site_profile.json'), 'w') as f:
+            json.dump(site_profile, f, indent=2)
+
+        # === Now build time features using the peak mask ===
+        tf_list = []
         for (d, j) in sample_map:
             date = pd.to_datetime(df['Date'].iloc[d])
             interval = j + window_size
@@ -127,16 +146,16 @@ def process_traffic_data(
             minute = (interval % 4) * 15
             dow = date.weekday()
             is_weekend = int(dow >= 5)
-            is_peak_am = int(7 <= hour < 9)
-            is_peak_pm = int(16 <= hour < 18)
-            tf_list.append([dow, is_weekend, is_peak_am, is_peak_pm, hour + minute / 60.0])
+            is_peak = int(peak_mask[interval])
+            tf_list.append([dow, is_weekend, is_peak, hour + minute / 60.0])
         tf_arr = np.array(tf_list)
 
         # Encode categorical & scale continuous
         encoder = OneHotEncoder(sparse_output=False)
         tf_cat = encoder.fit_transform(tf_arr[:, :4])
         cont_scaler = MinMaxScaler()
-        tf_cont = cont_scaler.fit_transform(tf_arr[:, 4].reshape(-1, 1))
+        tf_cont = cont_scaler.fit_transform(tf_arr[:, 3].reshape(-1, 1))
+
         tf_final = np.hstack([tf_cat, tf_cont])
         np.save(os.path.join(sd, 'time_features.npy'), tf_final)
         with open(os.path.join(sd, 'feature_encoder.pkl'), 'wb') as f:
