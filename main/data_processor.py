@@ -25,8 +25,8 @@ def process_traffic_data(
     traffic = pd.read_excel(excel, sheet_name='Data', header=1)
     summary = pd.read_excel(excel, sheet_name='Summary Of Data', header=3)
     summary = summary.dropna(subset=['SCATS Number'])
-    loc_csv = os.path.join(raw_dir, 'Traffic_Count_Locations_with_LONG_LAT.csv')
-    locations = pd.read_csv(loc_csv)
+    #loc_csv = os.path.join(raw_dir, 'Traffic_Count_Locations_with_LONG_LAT.csv')
+    #locations = pd.read_csv(loc_csv)
 
     # 3. Data Exploration
     print("=== Data Exploration ===")
@@ -164,14 +164,16 @@ def process_traffic_data(
             pickle.dump(cont_scaler, f)
 
         # 7. Location matching
-        rec = locations[locations['TFM_ID'] == site_id]
+        rec = traffic[traffic['SCATS Number'] == site_id]
+
         if not rec.empty:
-            lon = float(rec['X'].iloc[0])
-            lat = float(rec['Y'].iloc[0])
-            desc = rec['SITE_DESC'].iloc[0]
-            G.add_node(site_id, pos=(lon, lat))
+            lat = float(rec['NB_LATITUDE'].iloc[0])
+            lon = float(rec['NB_LONGITUDE'].iloc[0])
+            desc = rec['Location'].iloc[0]
         else:
-            lon = lat = desc = None
+            lat = lon = desc = None
+
+
 
         # Metadata
         metadata[str(site_id)] = {

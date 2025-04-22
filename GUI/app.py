@@ -143,10 +143,10 @@ if not sites_df.empty:
             ).add_to(marker_cluster)
         
         # Add tile layers (different map styles)
-        folium.TileLayer('openstreetmap').add_to(m)
-        folium.TileLayer('Stamen Terrain').add_to(m)
-        folium.TileLayer('Stamen Toner').add_to(m)
-        folium.TileLayer('CartoDB positron').add_to(m)
+        folium.TileLayer('openstreetmap', attr = '1').add_to(m)
+        folium.TileLayer('Stamen Terrain', attr = '1').add_to(m)
+        folium.TileLayer('Stamen Toner', attr = '1').add_to(m)
+        folium.TileLayer('CartoDB positron', attr = '1').add_to(m)
         folium.LayerControl().add_to(m)
         
         # Display the map
