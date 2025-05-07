@@ -201,3 +201,8 @@ class SiteNetwork:
         Get all connections arriving at a specific site
         """
         return [c for c in self.connections if c['to_id'] == site_id]
+    
+if __name__ == "__main__":
+    network = SiteNetwork("processed_data/preprocessed_data/sites_metadata.json")
+    print(network.connections)
+    
