@@ -1,4 +1,5 @@
 import random
+from datetime import datetime, time, date, timedelta
 from src.algorithms.search_graph import SearchGraph
 from src.algorithms.astar import AStar
 from src.algorithms.dfs import DFS
@@ -205,7 +206,6 @@ class RouteFinder:
         # Convert to minutes and add 30 seconds for intersection delay
         travel_time = (distance / speed) * 60 + 30 / 60
         return travel_time
-    
     def find_multiple_routes(self, origin_id, destination_id, selected_algorithms=None, prediction_model="LSTM", datetime_str=None):
         """
         Find routes from origin to destination using multiple algorithms
@@ -216,16 +216,15 @@ class RouteFinder:
         if selected_algorithms is None or "All" in selected_algorithms:
             selected_algorithms = all_algorithms
         
-        # Create the graph ONCE for all algorithms
+        # Create the graph once for all algorithms
         self.graph = self._create_search_graph(prediction_model, datetime_str)
         
         routes = []
 
         # Run each selected algorithm
         for alg_name in selected_algorithms:
-            # Now use the already created graph, don't create a new one
             path, total_cost, route_info = self.find_best_route(
-                origin_id, destination_id, alg_name
+                origin_id, destination_id, alg_name, prediction_model, datetime_str
             )
 
             if path:
@@ -242,27 +241,28 @@ class RouteFinder:
         # Sort routes by total cost (travel time)
         routes.sort(key=lambda x: x['total_cost'])
         
-        # Assign colors based on relative performance (best to worst)
-        route_colors = ["green", "yellow", "orange", "red", "darkred"]
+        # Assign colors based on relative performance
+        route_colors = ["green", "yellow", "orange", "red", "darkred", "black"]
         route_descriptions = [
             "Best route", 
             "Second best", 
             "Third best", 
             "Fourth best", 
-            "Fifth best"
+            "Fifth best",
+            "Sixth best"
         ]
         
-        for i, route in enumerate(routes[:5]):
+        for i, route in enumerate(routes[:]):
             color_index = min(i, len(route_colors)-1)
             route['traffic_level'] = route_colors[color_index]
             route['route_rank'] = route_descriptions[color_index]
         
-        # Limit to at most 5 routes
-        return routes[:5]
+        # Limit to at most 6 routes
+        return routes[:6]
 
-    def find_best_route(self, origin_id, destination_id, algorithm="All"):
+    def find_best_route(self, origin_id, destination_id, algorithm="All", prediction_model="LSTM", datetime_str=None):
         """
-        Find the best route using an already created graph
+        Find the best route using a specific algorithm
         """
         # Set the origin and destination in the graph
         self.graph.origin = origin_id
@@ -281,16 +281,25 @@ class RouteFinder:
         if not path:
             return None, None, None
         
-        # Calculate route information
-        return path, *self._calculate_route_details(path)
+        # Calculate route information with time progression
+        return path, *self._calculate_route_details(path, prediction_model, datetime_str)
+
     
-    def _calculate_route_details(self, path):
+    def _calculate_route_details(self, path, prediction_model, datetime_str):
         """
         Calculate total travel time and create a list of steps for a path
+        Account for time progression when calculating traffic for each segment
         """
         total_cost = 0
         route_info = []
         
+        # Initialize current time from datetime_str
+        try:
+            current_datetime = datetime.fromisoformat(datetime_str.replace('Z', '+00:00'))
+        except (ValueError, AttributeError):
+            # Fallback to current time if datetime_str is invalid
+            current_datetime = datetime.now()
+            
         for i in range(len(path) - 1):
             from_id = path[i]
             to_id = path[i + 1]
@@ -299,33 +308,29 @@ class RouteFinder:
             connection = self._find_connection(from_id, to_id)
             
             if connection:
-                # Get the actual travel time from the graph
-                # (This already includes traffic and intersection delay)
-                travel_time = None
-                for neighbor, cost in self.graph.adjacency_list.get(from_id, []):
-                    if neighbor == to_id:
-                        travel_time = cost
-                        break
+                # Round current_datetime to nearest 15-minute interval for prediction lookup
+                rounded_datetime = self._round_to_15_minutes(current_datetime)
                 
-                if travel_time is None:
-                    # Fallback calculation if not found in graph
-                    distance = connection['distance']
-                    travel_time = (distance / 45) * 60 + 0.5  # Use average speed
-                    
-                # Add to total cost
-                total_cost += travel_time
-                
-                # Get approach location to find traffic volume
+                # Get the approach location to find traffic volume
                 approach_location = connection.get('approach_location', '')
                 
-                # Get traffic volume from lookup dictionary
-                traffic_volume = self.traffic_volume_lookup.get(approach_location)
+                # Calculate interval_id based on rounded_datetime
+                current_interval_id = (rounded_datetime.hour * 4) + (rounded_datetime.minute // 15)
                 
-                # If traffic_volume is still None, calculate it from observed speed
+                # Get traffic volume for the current time
+                traffic_volume = self._get_traffic_volume_for_time(
+                    approach_location, 
+                    rounded_datetime.date().strftime("%Y-%m-%d"), 
+                    current_interval_id,
+                    prediction_model
+                )
+                
+                # Calculate travel time - implement fallback if needed
+                distance = connection['distance']
                 if traffic_volume is None:
-                    # Try to reverse-engineer the traffic volume based on travel time
-                    # This ensures there's always a meaningful traffic volume value
-                    speed = (connection['distance'] / (travel_time - 0.5)) * 60  # in km/h
+                    # Try to reverse-engineer traffic volume based on assumed travel time
+                    travel_time = (distance / 45) * 60 + 0.5  # Initial estimate
+                    speed = (distance / (travel_time - 0.5)) * 60  # km/h
                     
                     if speed >= 54:  # Almost free flow (90% of free flow speed)
                         traffic_volume = 50
@@ -346,6 +351,16 @@ class RouteFinder:
                     else:  # Highly congested
                         traffic_volume = 275
                 
+                # Calculate travel time with traffic volume
+                travel_time = self._calculate_travel_time(distance, traffic_volume)
+                
+                # Add to total cost
+                total_cost += travel_time
+                
+                # Update current time for next segment
+                time_delta = timedelta(minutes=travel_time)
+                current_datetime = current_datetime + time_delta
+                
                 # Add step info
                 route_info.append({
                     'from_id': from_id,
@@ -357,10 +372,68 @@ class RouteFinder:
                     'from_lng': connection['from_lng'],
                     'to_lat': connection['to_lat'],
                     'to_lng': connection['to_lng'],
-                    'traffic_volume': traffic_volume  # Add traffic volume to the route info
+                    'traffic_volume': traffic_volume,
+                    'arrival_time': current_datetime.strftime("%H:%M")
                 })
         
         return total_cost, route_info
+
+    def _get_traffic_volume_for_time(self, location, date_str, interval_id, prediction_model):
+        """
+        Get traffic volume for a specific location, date and interval
+        """
+        # Get the appropriate dataframe based on the prediction model
+        df = self.model_dataframes.get(prediction_model)
+        if df is not None:
+            try:
+                # Filter by date
+                available_dates = df["Date"].unique()
+                if date_str in available_dates:
+                    filtered_df = df[df["Date"] == date_str]
+                elif len(available_dates) > 0:
+                    # Sort dates and get the closest available date
+                    available_dates = sorted(available_dates)
+                    closest_date = available_dates[-1]
+                    filtered_df = df[df["Date"] == closest_date]
+                else:
+                    filtered_df = df
+                
+                # Filter by location
+                location_filtered = filtered_df[filtered_df["Location"] == location]
+                
+                if not location_filtered.empty:
+                    # Filter by interval_id
+                    if "interval_id" in location_filtered.columns:
+                        available_intervals = location_filtered["interval_id"].unique()
+                        if len(available_intervals) > 0:
+                            closest_interval = min(available_intervals, key=lambda x: abs(int(x) - interval_id))
+                            final_filtered = location_filtered[location_filtered["interval_id"] == closest_interval]
+                            if not final_filtered.empty:
+                                return float(final_filtered.iloc[0]["traffic_volume"])
+                    
+                    # Fallback to any traffic volume for this location
+                    return float(location_filtered.iloc[0]["traffic_volume"])
+                    
+            except Exception as e:
+                print(f"Error getting traffic volume for time: {e}")
+        
+        return None
+    
+    def _round_to_15_minutes(self, dt):
+        """
+        Round datetime to the nearest 15-minute interval (going backwards)
+        Returns a new datetime object with rounded minutes
+        """
+        # Extract minutes and round down to nearest 15-minute interval
+        total_minutes = dt.hour * 60 + dt.minute
+        rounded_minutes = (total_minutes // 15) * 15
+        
+        # Create new time with rounded minutes
+        new_hour = rounded_minutes // 60
+        new_minute = rounded_minutes % 60
+        
+        # Create a new datetime with the rounded time
+        return dt.replace(hour=new_hour, minute=new_minute, second=0, microsecond=0)
     
     def _find_connection(self, from_id, to_id):
         """
