@@ -49,10 +49,10 @@ class RouteFinder:
             if model_data["GRU"].columns[0] != "Location":
                 model_data["GRU"].columns = ["Location", "Date", "interval_id", "traffic_volume", "data_source"]
             
-        # Load CNN_LSTM model data
-        cnn_lstm_path = os.path.join(base_path, "cnn_lstm_model/cnn_lstm_model_complete_data.csv")
-        if os.path.exists(cnn_lstm_path):
-            model_data["Custom"] = pd.read_csv(cnn_lstm_path)
+        # Load Bi_LSTM model data
+        bi_lstm_path = os.path.join(base_path, "bi_lstm_model/bi_lstm_model_complete_data.csv")
+        if os.path.exists(bi_lstm_path):
+            model_data["Custom"] = pd.read_csv(bi_lstm_path)
             # Set column names if not already set
             if model_data["Custom"].columns[0] != "Location":
                 model_data["Custom"].columns = ["Location", "Date", "interval_id", "traffic_volume", "data_source"]
@@ -199,7 +199,7 @@ class RouteFinder:
         b = 93.75    # Coefficient for traffic_volume
         c = -traffic_volume
         d = b * b - (4 * a * c)
-        speed = (-b + math.sqrt(d)) / (2 * a)  # km/h
+        speed = (-b - math.sqrt(d)) / (2 * a)  # km/h
         speed = min(speed, 60)  # Cap speed at 60 km/h
         speed = max(speed, 5)  # Minimum speed of 5 km/h
 
