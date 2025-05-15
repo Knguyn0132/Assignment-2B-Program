@@ -46,7 +46,7 @@ class RoutePage(BasePage):
 
         with col2:
             # Model selection
-            model_options = ["LSTM", "GRU", "CNN_LSTM"]
+            model_options = ["LSTM", "GRU", "Bi_LSTM"]
             selected_model = st.selectbox(
                 "Select prediction model:", options=model_options, index=0
             )
